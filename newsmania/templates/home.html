@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home Page
+{% endblock title %}
+
+{% block content %}
+<div class="p-6 bg-blue-50 rounded-lg shadow-lg">
+    <h1 class="text-red-500 text-2xl font-bold mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, repellat.</h1>
+    <p class="text-gray-700 mb-4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum voluptatum voluptatem iure, modi quibusdam pariatur consequatur eveniet reiciendis nisi ullam quae fugit earum ab cum obcaecati ratione necessitatibus culpa architecto?
+    </p>
+    <ul class="list-disc list-inside space-y-2 text-gray-800">
+        <li>✅ All recent news available.</li>
+        <li>🔑 Login and register support.</li>
+        <li>☎️ 24/7 customer support.</li>
+    </ul>
+</div>
+
+<div class="p-6 bg-gray-100 rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold text-blue-600 mb-6">Recent News</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {% for data in news %}
+        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
+            <img src={{data.thumbnail.url}} alt="News Image" class="w-full h-40 object-cover rounded-md mb-4">
+            <p class=" mb-4 text-blue-600"><span class="font-bold">TITLE : </span>{{ data.title }}</p>
+            <p class="text-gray-700 mb-4 line-clamp-3"><span class="font-bold">DESC : </span>{{ data.description }}</p>
+
+            <a href="{% url 'news_details' data.id %}">
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">Read More...</button>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

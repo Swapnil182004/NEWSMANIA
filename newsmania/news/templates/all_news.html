@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<div class="p-6 bg-gray-100 rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold text-blue-600 mb-6">Recent News</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {% for news in all_news %}
+        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
+            <img src = {{news.thumbnail.url}} alt="News Image" class="w-full h-40 object-cover rounded-md mb-4">
+            <p class="text-gray-700 mb-4">TITLE : {{ news.title }}</p>
+            <p class="text-gray-700 mb-4 line-clamp-4">DESC : {{ news.description }}</p>
+            <a href="{% url 'news_details' news.id %}">
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">Read More...</button>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
