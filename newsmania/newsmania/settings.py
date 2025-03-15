@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-g^+8q#deq&))1tr2o4q#(dczv@r5==a*r^3-xzl(vfbu)cxpjs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['newsmania-df1y.onrender.com', '127.0.0.1']
 
 
 # Application definition
